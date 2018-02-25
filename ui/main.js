@@ -8,7 +8,7 @@ function moveIt() {
     if(pix===-60)
         state=true;
     if(state)*/
-        pix += 5;
+        pix = pix + 5;
     /*else
         pix -= 5;*/
     el.style.marginLeft = pix +'px';
