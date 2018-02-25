@@ -5,6 +5,21 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var content ={
+    titel: 'Safeuq- Article One',
+    content: `<p>
+                    Some thing. Some thing.
+                    Some thing. Some thing.
+                    Some thing. Some thing.
+                    Some thing. Some thing.
+                </p>
+                <p>
+                    Some thing. Some thing.
+                    Some thing. Some thing.
+                    Some thing. Some thing.
+                    Some thing. Some thing.
+                </p>`
+}
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
