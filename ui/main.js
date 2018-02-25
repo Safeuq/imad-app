@@ -16,7 +16,7 @@ function moveIt() {
 }
 el.onclick = function () {
     if (move===false){
-        var interval = setInterval(moveIt,5);
+        var interval = setInterval(moveIt,50);
         move = true;
     }
     if (move===true){
