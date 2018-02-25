@@ -21,7 +21,7 @@ var content ={
                 </p>`
 }
 function create (data) {
-    var titlr = data.title;
+    var title = data.title;
     var content = data.content;
     var htmlTemplate=`
     <html>
