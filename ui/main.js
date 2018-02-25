@@ -19,4 +19,7 @@ el.onclick = function () {
         var interval = setInterval(moveIt,5);
         move = true;
     }
+    if (move===true){
+        move = false;
+    }
 }
