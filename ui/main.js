@@ -14,5 +14,5 @@ function moveIt() {
     el.style.marginLeft = pix +'px';
 }
 el.onClick = function() {
-    var interval = setInterval(moveIt,50);
+    var interval = setInterval(moveIt(),50);
 }
