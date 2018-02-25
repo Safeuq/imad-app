@@ -13,6 +13,6 @@ function moveIt() {
         pix -= 5;*/
     el.style.marginLeft = pix +'px';
 }
-el.onClick = function () {
+el.onclick = function () {
     var interval = setInterval(moveIt,50);
 }
