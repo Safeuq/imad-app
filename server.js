@@ -19,6 +19,7 @@ var content ={
                     Some thing. Some thing.
                 </p>`
 }
+
 function create (data,title) {
     var content = data.content;
     var htmlTemplate=`
@@ -56,8 +57,9 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-app.get('/articleOne', function (req, res) {
-  res.send(create(content,'Article One'));
+app.get('/:articleName', function (req, res) {
+    var name = req.params.articleName;
+  res.send(create(content,name.substr(0,0).touppercase()+name.substr(1,6)+' '+name.substr(7)));
 });
 
 // Do not change port, otherwise your app won't run on IMAD servers
