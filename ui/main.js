@@ -21,7 +21,7 @@ el.onclick = function () {
         move = true;
     }
     if (move===true){
-        interval =clearInterval();
+        clearInterval(interval);
         move = false;
     }
 }
