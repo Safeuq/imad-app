@@ -59,7 +59,6 @@ app.get('/ui/madi.png', function (req, res) {
 
 app.get('/:articleName', function (req, res) {
     var name = req.params.articleName;
-    name = name.charAt(0).toUpperCase()+name.substr(1,6)+' '+name.substr(7);
   res.send(create(content,name));
 });
 
