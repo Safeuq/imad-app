@@ -6,7 +6,6 @@ var app = express();
 app.use(morgan('combined'));
 
 var content ={
-    title: 'Safeuq- Article One',
     content: `<p>
                     Some thing. Some thing.
                     Some thing. Some thing.
@@ -20,8 +19,7 @@ var content ={
                     Some thing. Some thing.
                 </p>`
 }
-function create (data) {
-    var title = data.title;
+function create (data,title) {
     var content = data.content;
     var htmlTemplate=`
     <html>
@@ -59,7 +57,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.get('/articleOne', function (req, res) {
-  res.send(create(content));
+  res.send(create(content,'Article One'));
 });
 
 // Do not change port, otherwise your app won't run on IMAD servers
