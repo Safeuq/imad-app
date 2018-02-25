@@ -14,12 +14,14 @@ function moveIt() {
         pix -= 5;
     el.style.marginLeft = pix +'px';
 }
+var interval;
 el.onclick = function () {
     if (move===false){
-        var interval = setInterval(moveIt,50);
+        interval = setInterval(moveIt,50);
         move = true;
     }
     if (move===true){
+        interval =clearInterval();
         move = false;
     }
 }
