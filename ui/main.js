@@ -9,9 +9,9 @@ function moveIt() {
     if(pix===-200)
         state=true;
     if(state)
-        pix = pix + 5;
+        pix = pix + 50;
     else
-        pix -= 5;
+        pix -= 50;
     el.style.marginLeft = pix +'px';
 }
 var interval;
