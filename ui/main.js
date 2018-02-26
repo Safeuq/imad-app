@@ -18,8 +18,7 @@ button.onclick=function() {
     request.open('GET',"http://mohamedsafeuq.imad.hasura-app.io/counter",true);
     request.send(null);
 };
-var nam = document.getElementById("name");
-var name = nam.value;
+
 var submit = document.getElementById("sub");
 submit.onclick = function() {
     
@@ -42,6 +41,8 @@ submit.onclick = function() {
         }
     };
     
+    var nam = document.getElementById("name");
+    var name = nam.value;
     request.open('GET',"http://mohamedsafeuq.imad.hasura-app.io/subname/?name="+name,true);
     request.send(null);
     
