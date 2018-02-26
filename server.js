@@ -58,7 +58,7 @@ app.get('/ui/main.js', function (req, res) {
 });
 
 var counter = 0;
-app.get('/ui/main.js', function (req, res) {
+app.get('/counter', function (req, res) {
   counter++;
   res.send(counter.toString());
 });
