@@ -34,6 +34,6 @@ button.onclick=function() {
             }
         }
     };
-    request.open('GET',"http://http://mohamedsafeuq.imad.hasura-app.io/".true);
+    request.open('GET',"http://http://mohamedsafeuq.imad.hasura-app.io/counter",true);
     request.send();
 };
