@@ -5,46 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var content ={
-    content: `<p>
-                    Some thing. Some thing.
-                    Some thing. Some thing.
-                    Some thing. Some thing.
-                    Some thing. Some thing.
-                </p>
-                <p>
-                    Some thing. Some thing.
-                    Some thing. Some thing.
-                    Some thing. Some thing.
-                    Some thing. Some thing.
-                </p>`
-}
 
-function create (data,title) {
-    var content = data.content;
-    var htmlTemplate=`
-    <html>
-        <head>
-            <title>
-                Safeuq - ${title}
-            </title>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <link href='/ui/style.css' rel='stylesheet' />
-        <body>
-            <div class='container'>
-                <div>
-                    <a href="/">Home</a>
-                </div><hr>
-                <h3> ${title}</h3>
-                <div>
-                    ${content}
-                </div>
-            </div>
-        </body>
-    </html>
-    `;
-    return htmlTemplate;
-}
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
