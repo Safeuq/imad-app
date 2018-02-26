@@ -20,7 +20,6 @@ el.onclick = function (){
         interval = setInterval(moveIt,50);
      
 };
-counter = 0;
 var button = document.getElementById("counter");
 button.onclick=function() {
     var request = new XMLHttpRequest();
