@@ -2,10 +2,11 @@ var pic = "https://scontent.fmaa2-1.fna.fbcdn.net/v/t1.0-9/15380327_116169996394
 var counter = 0;
 var button = document.getElementById("counter");
 button.onclick=function() {
+    
     var request = new XMLHttpRequest();
     
     request.onreadystatechange = function(){
-        if(request.readystate === XMLHttpRequest.DONE) {
+        if(request.readyState === XMLHttpRequest.DONE) {
             if(request.status === 200) {
                 var counter = request.responseText;
                 var span = document.getElementById("count");
@@ -13,6 +14,7 @@ button.onclick=function() {
             }
         }
     };
+    
     request.open('GET',"http://mohamedsafeuq.imad.hasura-app.io/counter",true);
     request.send(null);
 };
