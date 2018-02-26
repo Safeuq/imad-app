@@ -48,7 +48,12 @@ function create (data,title) {
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
+var names = [];
+app.get('/subname/:name',function(req,res){
+    var name = req.params.name;
+    names.push(name);
+    res.send(JSON.stringify(names));
+});
 app.get('/pic', function (req, res) {
   res.redirect("https://scontent.fmaa2-1.fna.fbcdn.net/v/t1.0-9/15380327_1161699963948097_5793214425944409063_n.jpg?oh=d6563b06fdaa7ea509d07f91e0f532d8&oe=5B4B3FE7");
 });
