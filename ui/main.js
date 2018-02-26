@@ -16,13 +16,13 @@ function moveIt() {
     el.style.marginLeft = pix +'px';
 }
 var interval;
-el.onclick = function () {
-    if (move===false){
+el.onclick = function (){
         interval = setInterval(moveIt,50);
-        move = true;
-    }
-    if (move===true){
-        clearInterval(interval);
-        move = false;
-    }
-}
+     
+};
+var button = document.getElementById("counter");
+button.onclick=function() {
+    counter = counter + 1;
+    var span = document.getElementById("count");
+    span.innerHtml = counter.toString();
+};
