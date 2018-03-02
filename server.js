@@ -16,7 +16,7 @@ app.use(morgan('combined'));
 var pool = new Pool(config);
 app.get('/access', function (req, res) {
   pool.query('SELECT * FROM test')
-  .then(resu => res.send(JSON.stringify(resu)))
+  .then(resu => res.send(JSON.stringify(resu.rows)))
   .catch(e => res.status(500).send(e.toString()));
 });
 
