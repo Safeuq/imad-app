@@ -15,13 +15,9 @@ app.use(morgan('combined'));
 
 var pool = new Pool(config);
 app.get('/access', function (req, res) {
-  pool.query('SELECT * FROM test',function(err,resu){
-  if (!err){
-      res.send(JSON.stringify(resu));
-  }
-  else
-    res.status(500).send(err.toString());
-  });
+  pool.query('SELECT * FROM test')
+  .then(resu => res.send(JSON.stringify(resu)))
+  .catch(e => res.status(500).send(e.toString()));
 });
 
 app.get('/', function (req, res) {
