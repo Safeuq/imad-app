@@ -16,10 +16,7 @@ app.use(morgan('combined'));
 
 app.get('/access', function (req, res) {
   pool.query('SELECT * FROM test')
-  .then(resu => {
-    res.send(JSON.stringify(resu));
-    // { name: 'brianc', email: 'brian.m.carlson@gmail.com' }
-  })
+  .then(resu => res.send(JSON.stringify(resu)))
   .catch(e => res.status(500).send(e.toString()));
 });
 
