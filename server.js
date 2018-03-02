@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool = require('pg').Pool;
+var pool = require('pg').Pool;
 
 var config = {
     user:'mohamedsafeuq',
@@ -15,7 +15,7 @@ app.use(morgan('combined'));
 
 
 app.get('/access', function (req, res) {
-  Pool.query('SELECT * FROM test')
+  pool.query('SELECT * FROM test')
   .then(resu => {
     res.send(JSON.stringify(resu));
     // { name: 'brianc', email: 'brian.m.carlson@gmail.com' }
