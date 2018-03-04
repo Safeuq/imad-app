@@ -48,7 +48,7 @@ function create (data,title) {
 }
 
 app.get('/article/:articleName',function(req,res){
-    pool.query("SELECT * FROM article WHERE title='"+req.params.articleName+"'")
+    pool.query("SELECT * FROM article WHERE title=$1",[req.params.articleName])
     .then(function(resu){
         if(resu.rows.length===0)
             res.status(404).send('Article not found');
