@@ -51,7 +51,7 @@ app.get('/article/:articleName',function(req,res){
     pool.query("SELECT * FROM article WHERE title='"+req.params.articleName+"'")
     .then(function(resu){
         if(resu.rows.length===0)
-            resu.status(404).send('Article not found');
+            res.status(404).send('Article not found');
         else{
             var articleData = result.rows[0];
             resu.send(create(articleData,articleData.name));
