@@ -20,6 +20,46 @@ app.get('/access', function (req, res) {
   .catch(e => res.status(500).send(e.toString()));
 });
 
+
+function create (data,title) {
+    var content = data.content;
+    var htmlTemplate=`
+    <html>
+        <head>
+            <title>
+                Safeuq - ${title}
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link href='/ui/style.css' rel='stylesheet' />
+        <body>
+            <div class='container'>
+                <div>
+                    <a href="/">Home</a>
+                </div><hr>
+                <h3> ${title}</h3>
+                <div>
+                    ${content}
+                </div>
+            </div>
+        </body>
+    </html>
+    `;
+    return htmlTemplate;
+}
+
+app.get('/article/:articleName',function(req,res){
+    pool.query("SELECT * FROM article WHERE title="+req.params.articleName)
+    .then((res)=>{
+        if(res.rows.length===0)
+            res.status(404).send('Article not found');
+        else{
+            var articleData = result.rows[0];
+            res.send(create(articleData,articleData.name));
+        }
+    })
+    .catch(e=>res.status(500).send(e.toString()));
+});
+    
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -64,3 +104,4 @@ var port = 80;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
+
