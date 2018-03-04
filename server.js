@@ -49,12 +49,12 @@ function create (data,title) {
 
 app.get('/article/:articleName',function(req,res){
     pool.query("SELECT * FROM article WHERE title='"+req.params.articleName+"'")
-    .then((res)=>{
-        if(res.rows.length===0)
-            res.status(404).send('Article not found');
+    .then(function(resu){
+        if(resu.rows.length===0)
+            resu.status(404).send('Article not found');
         else{
             var articleData = result.rows[0];
-            res.send(create(articleData,articleData.name));
+            resu.send(create(articleData,articleData.name));
         }
     })
     .catch(e=>res.status(500).send(e.toString()));
