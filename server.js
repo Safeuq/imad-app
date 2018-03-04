@@ -53,8 +53,8 @@ app.get('/article/:articleName',function(req,res){
         if(resu.rows.length===0)
             res.status(404).send('Article not found');
         else{
-            var articleData = result.rows[0];
-            resu.send(create(articleData,articleData.name));
+            var articleData = resu.rows[0];
+            res.send(create(articleData,articleData.name));
         }
     })
     .catch(e=>res.status(500).send(e.toString()));
